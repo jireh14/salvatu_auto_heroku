@@ -1,0 +1,5 @@
+'/coche', 'application.controllers.coche.index.Index',
+'/coche/view/(.+)', 'application.controllers.coche.view.View',
+'/coche/edit/(.+)', 'application.controllers.coche.edit.Edit',
+'/coche/delete/(.+)', 'application.controllers.coche.delete.Delete',
+'/coche/insert', 'application.controllers.coche.insert.Insert',

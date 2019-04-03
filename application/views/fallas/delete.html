@@ -1,0 +1,38 @@
+$def with(fallas, message)
+<h3>
+    <a href="/fallas">fallas</a>
+</h3>
+$if message != None:
+    <div class="alert alert-warning">
+        <strong>Advertencia </strong> $message
+    </div>
+<br>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_falla" id="id_falla" value="$fallas.id_falla" />
+
+    <div class="form-group">
+    <label for="codigo_falla">codigo_falla</label>
+    <input readonly id="codigo_falla" type="text" class="form-control" name="codigo_falla" size="30" value="$fallas.codigo_falla"/>
+</div><div class="form-group">
+    <label for="descripcion">descripcion</label>
+    <input readonly id="descripcion" type="text" class="form-control" name="descripcion" size="30" value="$fallas.descripcion"/>
+</div><div class="form-group">
+    <label for="causa">causa</label>
+    <input readonly id="causa" type="text" class="form-control" name="causa" size="30" value="$fallas.causa"/>
+</div><div class="form-group">
+    <label for="imagen">imagen</label>
+    <input readonly id="imagen" type="text" class="form-control" name="imagen" size="30" value="$fallas.imagen"/>
+</div><div class="form-group">
+    <label for="id_coche">id_coche</label>
+    <input readonly id="id_coche" type="text" class="form-control" name="id_coche" size="30" value="$fallas.id_coche"/>
+</div>
+
+    <div class="form-group">
+        <label></label>
+        <button id="send" name="send" class="form-control"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    </div>
+</form>
+<br>
+<br>
+<br>

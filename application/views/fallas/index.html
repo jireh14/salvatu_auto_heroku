@@ -1,0 +1,21 @@
+$def with(fallas)
+<h3>
+    <a href="/fallas">fallas</a>
+</h3>
+<table id="datos_tabla" class="table table-hover" cellspacing="0" width="100%">
+    <thead>
+        <th>fallas</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        $for item in fallas:
+        <tr>
+            <td><a href='/fallas/view/$item.id_falla'>$item.codigo_falla $item.descripcion $item.causa</a></td>
+            <td><a href='/fallas/edit/$item.id_falla'><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href='/fallas/delete/$item.id_falla'><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>

@@ -1,0 +1,5 @@
+'/fallas', 'application.controllers.fallas.index.Index',
+'/fallas/view/(.+)', 'application.controllers.fallas.view.View',
+'/fallas/edit/(.+)', 'application.controllers.fallas.edit.Edit',
+'/fallas/delete/(.+)', 'application.controllers.fallas.delete.Delete',
+'/fallas/insert', 'application.controllers.fallas.insert.Insert',
