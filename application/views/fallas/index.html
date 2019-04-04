@@ -11,7 +11,7 @@ $def with(fallas)
     <tbody>
         $for item in fallas:
         <tr>
-            <td><a href='/fallas/view/$item.id_falla'>$item.codigo_falla $item.descripcion $item.causa</a></td>
+            <td><a href='/fallas/view/$item.id_falla'>$item.codigo_falla $item.descripcion $item.causa $item.imagen</a></td>
             <td><a href='/fallas/edit/$item.id_falla'><span class="glyphicon glyphicon-pencil"></span></a></td>
             <td><a href='/fallas/delete/$item.id_falla'><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>

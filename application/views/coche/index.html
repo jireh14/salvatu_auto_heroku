@@ -11,7 +11,7 @@ $def with(coche)
     <tbody>
         $for item in coche:
         <tr>
-            <td><a href='/coche/view/$item.id_coche'>$item.modelo $item.anio</a></td>
+            <td><a href='/coche/view/$item.id_coche'>$item.marca $item.modelo $item.anio</a></td>
             <td><a href='/coche/edit/$item.id_coche'><span class="glyphicon glyphicon-pencil"></span></a></td>
             <td><a href='/coche/delete/$item.id_coche'><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
