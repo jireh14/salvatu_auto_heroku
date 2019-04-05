@@ -21,5 +21,6 @@ class Index:
     def GET_INDEX():
         result = config.model.get_all_fallas().list() # get fallas table list
         for row in result:
-            row.id_falla = config.make_secure_val(str(row.id_falla)) # apply HMAC to id_falla (primary key)
+            row.id_falla = config.make_secure_val(str(row.id_falla)) 
+        print result# apply HMAC to id_falla (primary key)
         return config.render.index(result) # render fallas index.html
