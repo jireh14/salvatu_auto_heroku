@@ -56,8 +56,11 @@ VALUES ('VolksWagen','Jetta','2018'),
 ('VolksWagen','Polo','2019');
 
 INSERT INTO fallas(codigo_falla,descripcion,causa,imagen,id_coche)
-VALUES ('P0102','Lo que significa que el sensor MAF o en su circuito, existe una condición baja de aire','Puede haber fugas de aire, El Sensor de Flujo de Masa de Aire (MAF) puede estar contaminado o sucio.','maf_p0102','1'),
-('P0103','indica que existe una condición alta en el sensor MAF o en su circuito, la entrada de aire es alta ','Sensor MAF defectuoso, Sensor de flujo de masa de aire (MAF) puede presentar problemas como cables desgastados o corroídos.','maf_p0102','1');
+VALUES ('P0102','Lo que significa que el sensor MAF o en su circuito, existe una condición baja de aire','Puede haber fugas de aire, El Sensor de Flujo de Masa de Aire (MAF) puede estar contaminado o sucio.','sensor_maf.jpg','1'),
+('P0103','Indica que existe una condición alta en el sensor MAF o en su circuito, la entrada de aire es alta ','Sensor MAF defectuoso, Sensor de flujo de masa de aire (MAF) puede presentar problemas como cables desgastados o corroídos.','sensor_maf2.jpg','2'),
+('P0300','Nos indica que el ECM (Engine Control Module) ha detectado que uno o más cilindros que no están cumpliendo su función al momento de realizar la combustión.','*Alguna bujía está mala. *Inyector de Combustible con obstrucción o dañado. *Puede haber algún cortocircuito o está abierto el Arnés de Inyectores. *La compresión en los Cilindros es insuficiente. *Presión incorrecta del combustible.','arnes_inyectores.jpg','3'),
+('P0122','Nos indica que el PCM (Powertrain Control Module) ha detectado que el voltaje del sensor TPS (Throttle Position Sensor), está por debajo del límite ya establecido.','*Es posible que el TPS (Sensor de Posición del Acelerador) no esté situado de forma segura. *Quizás un cable del circuito del TPS (Throttle Position Sensor) está defectuoso. *El sensor TPS puede estar defectuoso.','sensor_tps.jpg','4');
+
 
 INSERT INTO users (username, password, privilege, status, name, email, other_data, user_hash, change_pwd)
 VALUES ('admin',MD5(concat('admin', 'kuorra_key')), 0, 1, 'Admin', 'admin@gmail.com','TIC:SI', MD5(concat('admin', 'kuorra_key', '2016/06/04')), 0),
