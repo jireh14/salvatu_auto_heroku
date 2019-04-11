@@ -38,7 +38,9 @@ CREATE TABLE coche(
     id_coche int(30) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     marca text(255) NOT NULL,
     modelo text(255) NOT NULL,
-    anio int(4)  NOT NULL);
+    anio int(4)  NOT NULL,
+    codigo_falla varchar(6) NOT NULL,
+    FOREIGN KEY(codigo_falla) references fallas(codigo_falla));
 
 CREATE TABLE fallas( 
     id_falla int(30) NOT NULL PRIMARY KEY AUTO_INCREMENT,
