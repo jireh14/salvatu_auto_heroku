@@ -4,10 +4,10 @@ import json
 
 
 class Api_fallas:
-    def get(self, id_falla):
+    def get(self, codigo_falla):
         try:
-            # http://localhost:8080/api_fallas?user_hash=12345&action=get
-            if id_falla is None:
+            # http://salvatuauto.herokuapp.com/api_fallas?user_hash=12345&action=get
+            if codigo_falla is None:
                 result = config.model.get_all_fallas()
                 fallas_json = []
                 for row in result:
@@ -16,8 +16,8 @@ class Api_fallas:
                 web.header('Content-Type', 'application/json')
                 return json.dumps(fallas_json)
             else:
-                # http://localhost:8080/api_fallas?user_hash=12345&action=get&id_falla=1
-                result = config.model.get_fallas(int(id_falla))
+                # http://salvatuauto.herokuapp.com/api_fallas?user_hash=12345&action=get&codigo_falla=1
+                result = config.model.get_fallas(int(codigo_falla))
                 fallas_json = []
                 fallas_json.append(dict(result))
                 web.header('Content-Type', 'application/json')
@@ -40,9 +40,9 @@ class Api_fallas:
             return None
 
 # http://0.0.0.0:8080/api_fallas?user_hash=12345&action=delete&id_falla=1
-    def delete(self, id_falla):
+    def delete(self, codigo_falla):
         try:
-            config.model.delete_fallas(id_falla)
+            config.model.delete_fallas(codigo_falla)
             fallas_json = '[{200}]'
             web.header('Content-Type', 'application/json')
             return json.dumps(fallas_json)
@@ -77,8 +77,7 @@ class Api_fallas:
         try:
             user_hash = user_data.user_hash  # user validation
             action = user_data.action  # action GET, PUT, DELETE, UPDATE
-            id_falla=user_data.id_falla
-
+            
             codigo_falla=user_data.codigo_falla
 
             descripcion=user_data.descripcion
@@ -94,13 +93,13 @@ class Api_fallas:
                 if action is None:
                     raise web.seeother('/404')
                 elif action == 'get':
-                    return self.get(id_falla)
+                    return self.get(codigo_falla)
                 elif action == 'put':
                     return self.put(codigo_falla,descripcion,causa,imagen,id_coche)
                 elif action == 'delete':
-                    return self.delete(id_falla)
+                    return self.delete(codigo_falla)
                 elif action == 'update':
-                    return self.update(id_falla, codigo_falla,descripcion,causa,imagen,id_coche)
+                    return self.update(codigo_falla, codigo_falla,descripcion,causa,imagen,id_coche)
             else:
                 raise web.seeother('/404')
         except Exception as e:
