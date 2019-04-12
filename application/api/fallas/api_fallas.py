@@ -16,7 +16,7 @@ class Api_fallas:
                 web.header('Content-Type', 'application/json')
                 return json.dumps(fallas_json)
             else:
-                # http://salvatuauto.herokuapp.com/api_fallas?user_hash=12345&action=get&codigo_falla=1
+                # http://salvatuauto.herokuapp.com/api_fallas?user_hash=12345&action=get&codigo_falla=codigo_falla
                 result = config.model.get_fallas(int(codigo_falla))
                 fallas_json = []
                 fallas_json.append(dict(result))
@@ -39,7 +39,7 @@ class Api_fallas:
             print "PUT Error {}".format(e.args)
             return None
 
-# http://0.0.0.0:8080/api_fallas?user_hash=12345&action=delete&id_falla=1
+# http://0.0.0.0:8080/api_fallas?user_hash=12345&action=delete&codigo_falla=codigo_falla
     def delete(self, codigo_falla):
         try:
             config.model.delete_fallas(codigo_falla)
@@ -67,7 +67,6 @@ class Api_fallas:
         user_data = web.input(
             user_hash=None,
             action=None,
-            id_falla=None,
             codigo_falla=None,
             descripcion=None,
             causa=None,
