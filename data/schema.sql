@@ -43,8 +43,7 @@ CREATE TABLE coche(
     FOREIGN KEY(codigo_falla) references fallas(codigo_falla));
 
 CREATE TABLE fallas( 
-    id_falla int(30) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    codigo_falla varchar(6) NOT NULL,
+    codigo_falla varchar(6) NOT NULL PRIMARY KEY,
     descripcion text(255) NOT NULL,
     causa text(255) NOT NULL,
     imagen varchar(50)  NOT NULL,
