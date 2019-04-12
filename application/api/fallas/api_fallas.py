@@ -29,7 +29,7 @@ class Api_fallas:
             return json.dumps(fallas_json)
 
 # http://localhost:8080/api_fallas?user_hash=12345&action=put&id_falla=1&product=nuevo&description=nueva&stock=10&purchase_price=1&price_sale=3&product_image=0
-    def put(self, codigo_falla,descripcion,causa,imagen,id_coche):
+    def put(self,codigo_falla,descripcion,causa,imagen,id_coche):
         try:
             config.model.insert_fallas(codigo_falla,descripcion,causa,imagen,id_coche)
             fallas_json = '[{200}]'
@@ -51,9 +51,9 @@ class Api_fallas:
             return None
 
 # http://0.0.0.0:8080/api_fallas?user_hash=12345&action=update&id_falla=1&product=nuevo&description=nueva&stock=10&purchase_price=1&price_sale=3&product_image=default.jpg
-    def update(self, id_falla, codigo_falla,descripcion,causa,imagen,id_coche):
+    def update(self, codigo_falla,descripcion,causa,imagen,id_coche):
         try:
-            config.model.edit_fallas(id_falla,codigo_falla,descripcion,causa,imagen,id_coche)
+            config.model.edit_fallas(codigo_falla,descripcion,causa,imagen,id_coche)
             fallas_json = '[{200}]'
             web.header('Content-Type', 'application/json')
             return json.dumps(fallas_json)
@@ -77,7 +77,7 @@ class Api_fallas:
         try:
             user_hash = user_data.user_hash  # user validation
             action = user_data.action  # action GET, PUT, DELETE, UPDATE
-            
+
             codigo_falla=user_data.codigo_falla
 
             descripcion=user_data.descripcion
@@ -99,7 +99,7 @@ class Api_fallas:
                 elif action == 'delete':
                     return self.delete(codigo_falla)
                 elif action == 'update':
-                    return self.update(codigo_falla, codigo_falla,descripcion,causa,imagen,id_coche)
+                    return self.update(codigo_falla,descripcion,causa,imagen,id_coche)
             else:
                 raise web.seeother('/404')
         except Exception as e:

@@ -13,18 +13,18 @@ def get_all_fallas():
         return None
 
 
-def get_fallas(id_falla):
+def get_fallas(codigo_falla):
     try:
-        return db.select('fallas', where='id_falla=$id_falla', vars=locals())[0]
+        return db.select('fallas', where='codigo_falla=$codigo_falla', vars=locals())[0]
     except Exception as e:
         print "Model get Error {}".format(e.args)
         print "Model get Message {}".format(e.message)
         return None
 
 
-def delete_fallas(id_falla):
+def delete_fallas(codigo_falla):
     try:
-        return db.delete('fallas', where='id_falla=$id_falla', vars=locals())
+        return db.delete('fallas', where='codigo_falla=$codigo_falla', vars=locals())
     except Exception as e:
         print "Model delete Error {}".format(e.args)
         print "Model delete Message {}".format(e.message)
@@ -44,15 +44,14 @@ id_coche=id_coche)
         return None
 
 
-def edit_fallas(id_falla,codigo_falla,descripcion,causa,imagen,id_coche):
+def edit_fallas(codigo_falla,descripcion,causa,imagen,id_coche):
     try:
-        return db.update('fallas',id_falla=id_falla,
-codigo_falla=codigo_falla,
+        return db.update('fallas',codigo_falla=codigo_falla,
 descripcion=descripcion,
 causa=causa,
 imagen=imagen,
 id_coche=id_coche,
-                  where='id_falla=$id_falla',
+                  where='codigo_falla=$codigo_falla',
                   vars=locals())
     except Exception as e:
         print "Model update Error {}".format(e.args)
